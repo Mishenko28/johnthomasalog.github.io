@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World!</title>
+</head>
+<body>
+    <h1></h1>
+    <script type="text/javascript" charset="utf-8">
+        let textToPrint = "Hello honey bunch sugar plum yummy yummy";
+        let counter;
+        let index = 0;
+        let word = [];
+        
+        
+        function checkCapital() {
+            if (textToPrint[index] !== undefined) {
+                textToPrint[index] === textToPrint[index].toLowerCase() ? counter = 97 : counter = 65;
+            }
+        }
+        function frame() {
+            let letter = String.fromCharCode(counter);
+            index == textToPrint.length ? document.querySelector('h1').innerHTML = word.join('') : document.querySelector('h1').innerHTML = word.join('') + letter;
+            
+            if (textToPrint[index] == ' ') {
+                index++;
+                counter = 65;
+                word.push(' ');
+                checkCapital();
+            }else if (letter == textToPrint[index]) {
+                index++;
+                counter = 65;
+                word.push(letter);
+                checkCapital();
+            }else {
+                counter ++;
+            }
+            requestAnimationFrame(frame);
+        }
+        checkCapital();
+        frame();
+    </script>
+</body>
+</html>
