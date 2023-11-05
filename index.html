@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1></h1>
+    <h2></h2>
     <script type="text/javascript" charset="utf-8">
-        let textToPrint = "Hello my honeybunch sugarplum";
+        let textToPrint = "“A man is already halfway in love with any woman who listens to him.” – Brendan Francis";
         let counter = 0;
         let index = 0;
         let word = [];
@@ -18,6 +19,8 @@
         function checkCapital() {
             if (textToPrint[index] !== undefined) {
                 textToPrint[index] === textToPrint[index].toLowerCase() ? counter = 97 : counter = 65;
+            }else {
+                document.querySelector('h2').innerHTML = "Hi Honeybunch <3"
             }
         }
         function frame() {
