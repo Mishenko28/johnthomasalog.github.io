@@ -10,7 +10,7 @@
     <h1></h1>
     <script type="text/javascript" charset="utf-8">
         let textToPrint = "Hello my honeybunch sugarplum";
-        let counter;
+        let counter = 0;
         let index = 0;
         let word = [];
         
@@ -22,34 +22,29 @@
         }
         function frame() {
             let letter = String.fromCharCode(counter);
-            index == textToPrint.length ? document.querySelector('h1').innerHTML = word.join('') : document.querySelector('h1').innerHTML = word.join('') + letter;
+            index >= textToPrint.length ? document.querySelector('h1').innerHTML = word.join('') : document.querySelector('h1').innerHTML = word.join('') + letter;
             
             if (textToPrint[index] == ' ') {
                 index++;
-                counter = 65;
                 word.push(' ');
                 checkCapital();
             }else if (letter == textToPrint[index]) {
                 index++;
-                counter = 65;
                 word.push(letter);
                 checkCapital();
             }else {
-                counter ++;
+                if (counter == 122) {
+                    word.push(textToPrint[index]);
+                    index ++;
+                    checkCapital();
+                }else {
+                    counter ++;
+                }
             }
             requestAnimationFrame(frame);
         }
         checkCapital();
         frame();
-        
-        for (let i = 0; i < 100; i++) {
-            console.log(String.fromCharCode(i))
-        }
-        
-        
-        
-        
-        
     </script>
 </body>
 </html>
